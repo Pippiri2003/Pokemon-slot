@@ -1,0 +1,33 @@
+:root {
+  --bg: #0a0f1f;
+  --neon: #6cf2ff;
+}
+
+body {
+  background: radial-gradient(circle at top, #101840, var(--bg));
+  color: white;
+  font-family: system-ui, -apple-system;
+  touch-action: manipulation;
+}
+
+.reels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  perspective: 800px;
+}
+
+.reel {
+  height: 120px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px var(--neon);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Monster Slot",
+  "short_name": "Slot",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0a0f1f",
+  "theme_color": "#6cf2ff",
+  "icons": []
+}

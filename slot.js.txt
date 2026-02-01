@@ -1,0 +1,37 @@
+const reels = document.querySelectorAll(".reel");
+const spinBtn = document.getElementById("spin");
+const canvas = document.getElementById("fx");
+const ctx = canvas.getContext("2d");
+
+function haptic(pattern = 30) {
+  if (navigator.vibrate) navigator.vibrate(pattern);
+}
+
+function spinReel(reel) {
+  reel.animate(
+    [
+      { transform: "translateY(0)" },
+      { transform: "translateY(-120px)" },
+      { transform: "translateY(0)" }
+    ],
+    {
+      duration: 700 + Math.random() * 600,
+      easing: "cubic-bezier(.2,.8,.2,1)"
+    }
+  );
+}
+
+spinBtn.addEventListener("click", () => {
+  haptic([20, 30, 20]);
+  reels.forEach(spinReel);
+  pulseFX();
+});
+
+function pulseFX() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.beginPath();
+  ctx.arc(canvas.width/2, canvas.height/2, 10, 0, Math.PI * 2);
+  ctx.strokeStyle = "rgba(108,242,255,0.8)";
+  ctx.lineWidth = 4;
+  ctx.stroke();
+}
